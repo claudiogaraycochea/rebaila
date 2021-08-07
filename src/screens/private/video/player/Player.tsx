@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
-import { Container } from '../../../../ui/ui';
+import * as React from 'react';
+import { View, StyleSheet, Button } from 'react-native';
+import { Video, AVPlaybackStatus } from 'expo-av';
 
-export default function Home(props: any) { 
-  const { navigation } = props;
-  const [nextButton, setNextButton] = useState(true);
+export default function Player(props: any) {
+  const { navigation, route } = props;
+  const { videoSrc } =route.params;
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
   return (
-    <Container>
+    <View>
+      <Video
+        ref={video}
+        style={{width:'100%', height: '100%'}}
+        source={{
+          uri: videoSrc,
+        }}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+      {/*
       <View>
-        <Text>Player</Text>
         <Button
-          title="Register"
-          onPress={() => navigation.navigate('Experience')}
+          title={status.isPlaying ? 'Pause' : 'Play'}
+          onPress={() =>
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+          }
         />
-      </View>
-    </Container>
+        </View>*/}
+    </View>
   );
-
 }

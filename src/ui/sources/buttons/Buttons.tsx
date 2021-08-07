@@ -1,7 +1,8 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Children } from 'react';
+import { View, ImageBackground, TouchableHighlight } from 'react-native';
 import styled, { css } from 'styled-components';
 import { Color } from '../colors/Colors';
+import { Icon } from '../icons/Icons';
 
 ///////////////////////////
 /* Button */
@@ -201,5 +202,85 @@ export const ButtonBox = (props: any) => {
         </ButtonBoxDescription>
       </ButtonBoxContent>
     </ButtonBoxContainer>
+  );
+};
+
+/* ButtonBox */
+export const ButtonPlayer = (props: any) => {
+
+  const { thumbnail, gender, onPress, style, active } = props;
+
+  const ButtonPlayerImage = styled.ImageBackground`
+    flex: 1;
+    height: 180px;
+  `;
+
+  const ButtonPlayerContainer = styled.TouchableHighlight`
+    flex: 1;
+    padding: 20px;
+    height: 180px;
+  `;
+
+  const ButtonPlayerContent = styled.View`
+    display: flex;
+  `;
+
+  const ButtonPlayerGender = styled.View`
+    backgroundColor: ${Color.green};
+    borderRadius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: 140px;
+  `
+  const ButtonPlayerGenderLabel = styled.Text`
+    font-weight: 400;
+    font-size: 14px;
+    color: ${active ? Color.white : Color.text};
+  `
+
+  return (
+    <ButtonPlayerImage 
+      source={{uri: props.thumbnail}}
+      resizeMode="cover"
+      imageStyle={{ borderRadius: 10}}
+    > 
+    <ButtonPlayerContainer
+      underlayColor='rgba(73,182,77,1,0.9)'
+      onPress={onPress}
+    >
+  
+        <ButtonPlayerContent>
+          <ButtonPlayerGender>
+            <ButtonPlayerGenderLabel>{gender}</ButtonPlayerGenderLabel>
+          </ButtonPlayerGender>
+        </ButtonPlayerContent>
+      
+    </ButtonPlayerContainer>
+    </ButtonPlayerImage>
+  );
+};
+
+export const ButtonIcon = (props: any) => {
+  const ButtonIconContainer = styled.TouchableHighlight`
+    background-color: transparent;
+    width: 42px;
+    height: 42px;
+    border-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `
+
+  return (
+    <ButtonIconContainer
+      underlayColor='rgba(0,0,0,1,0.5)'
+      onPress={props.onPress}
+      style={props.style}
+      variant={props.variant}
+    >
+      {props.children}
+    </ButtonIconContainer>
   );
 };

@@ -1,14 +1,24 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import { Color } from '../colors/Colors';
 
 /* Text */
-export const H1 = styled.Text`
-  font-family: PoppinsBold;
-  font-size: 32px;
-  font-weight: bold;
-  flex: 1;
-`;
+
+export const H1 = (props: any) => {
+  const H1Container = styled.Text`
+    font-family: PoppinsBold;
+    font-size: 32px;
+    font-weight: bold;
+    flex: 1;
+    color: ${(props.color) ? `${props.color}` : Color.text};
+  `;
+
+  return (
+    <H1Container>
+      {props.children}
+    </H1Container>
+  )
+}
 
 export const H2 = (props: any) => {
   const H2Container = styled.Text`
