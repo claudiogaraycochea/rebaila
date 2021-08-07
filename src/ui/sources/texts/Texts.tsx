@@ -11,6 +11,7 @@ export const H1 = (props: any) => {
     font-weight: bold;
     flex: 1;
     color: ${(props.color) ? `${props.color}` : Color.text};
+    textAlign: ${(props.align) ? `${props.align}` : 'left'};
   `;
 
   return (
@@ -28,6 +29,7 @@ export const H2 = (props: any) => {
     flex: 1;
     font-weight: bold;
     color: ${(props.color) ? `${props.color}` : Color.text};
+    textAlign: ${(props.align) ? `${props.align}` : 'left'};
   `;
 
   return (
@@ -50,6 +52,7 @@ export const Text = (props: any) => {
     font-family: PoppinsRegular;
     font-size: 16px;
     color: ${(props.color) ? `${props.color}` : Color.text};
+    textAlign: ${(props.align) ? `${props.align}` : 'left'};
   `;
 
   return (

@@ -1,5 +1,5 @@
 import React, { Children } from 'react';
-import { View, ImageBackground, TouchableHighlight } from 'react-native';
+import { View, ImageBackground, TouchableHighlight, Image } from 'react-native';
 import styled, { css } from 'styled-components';
 import { Color } from '../colors/Colors';
 import { Icon } from '../icons/Icons';
@@ -25,12 +25,12 @@ const getTextColor = (variant) => {
   }
 }
 
-export const Button = (props) => {
+export const Button = (props: any) => {
   const ButtonContainer = styled.TouchableHighlight`
-    background-color: ${props => (props.variant) ? getBgColor(props.variant) : Color.normal};
+    background-color: ${Color.primary};
     padding: 8px 20px;
     width: 100%;
-    border-color: ${props => (props.variant) ? getTextColor(props.variant) : Color.primary};
+    border-color: ${Color.primary};
     border-radius: 10px;
     border-width: 0;
     align-self: center;
@@ -46,7 +46,7 @@ export const Button = (props) => {
     font-size: 16px;
     padding: 10px;
     font-size: 16px;
-    color: ${props => (props.variant) ? getTextColor(props.variant) : Color.primary};
+    color: ${Color.white};
   `
 
   return (
@@ -54,10 +54,9 @@ export const Button = (props) => {
       underlayColor='rgba(73,182,77,1,0.9)'
       onPress={props.onPress}
       style={props.style}
-      variant={props.variant}
     >
-      <ButtonLabel variant={props.variant}>
-        {props.children}
+      <ButtonLabel>
+        {props.title}
       </ButtonLabel>
     </ButtonContainer>
   );
@@ -76,7 +75,7 @@ export const ButtonItems = styled.View`
 /* ButtonItem */
 export const ButtonItem = (props) => {
 
-  const { title, description, onPress, style, active } = props;
+  const { title, description, onPress, style, active, thumbnail } = props;
 
   const ButtonItemContainer = styled.TouchableHighlight`
     margin-left: -20px;
@@ -93,15 +92,21 @@ export const ButtonItem = (props) => {
     flex-direction: column;
   `
   const ButtonItemTitle = styled.Text`
-    font-weight: 900;
+    font-weight: 600;
     font-size: 18px;
     color: ${active ? Color.white : Color.text};
+    margin-bottom: 10px;
   `
   const ButtonItemDescription = styled.Text`
     font-weight: 400;
     font-size: 14px;
     color: ${active ? Color.white : Color.text};
+    margin-bottom: 10px;
   `
+  const ButtonButtonItemThumbnail = styled.ImageBackground`
+    flex: 1;
+    height: 180px;
+  `;
 
   return (
     <ButtonItemContainer
@@ -115,6 +120,13 @@ export const ButtonItem = (props) => {
         <ButtonItemDescription>
           {description}
         </ButtonItemDescription>
+        {thumbnail ? (
+          <ButtonButtonItemThumbnail
+            source={{uri: thumbnail}}
+            resizeMode="cover"
+            imageStyle={{ borderRadius: 10}}
+          />
+        ):null}
       </ButtonItemContent>
     </ButtonItemContainer>
   );

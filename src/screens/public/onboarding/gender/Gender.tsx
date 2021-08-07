@@ -26,7 +26,7 @@ export default function Gender(props: any) {
     >
       <Section>
         <Row>
-          <H2>¿Que necesitas experiencia tienes bailando?</H2>
+          <H2 align='center'>¿Que necesitas experiencia tienes bailando?</H2>
         </Row>
           <ButtonItems>
             {genders.map((experience) => (
@@ -35,6 +35,7 @@ export default function Gender(props: any) {
                 active={(itemSelected === experience.tag) ? true : false }
                 title={experience.title}
                 description={experience.description}
+                thumbnail={experience.thumbnail}
               />
             ))}
           </ButtonItems>

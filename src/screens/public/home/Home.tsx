@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import { View, Button } from 'react-native';
-import { Container, H1, Text, } from '../../../ui/ui';
+import { View } from 'react-native';
+import { Container, Section, H1, Text, Button } from '../../../ui/ui';
 
 export default function Home(props: any) { 
   const { navigation } = props;
   const [nextButton, setNextButton] = useState(true);
   return (
     <Container
-      bottom={(nextButton) ? (
-        <View>
+      bottom={
+        <View style={{marginBottom: 20}}>
           <Button
-            title="Register"
+            title="Registar"
+            color='primary'
             onPress={() => navigation.navigate('Experience')}
           />
-        </View>) : null
+        </View>
       }
     >
-      <View>
-        <Text>Home</Text>
-      </View>
     </Container>
   );
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { View } from 'react-native';
 import { setUserData } from '../../../../store/actions/userActions';
-import { Container, Section, Row, H2, H3, Text, ButtonBottom } from '../../../../ui/ui';
+import { Container, Section, Row, H2, H3, Text, ButtonBottom, Icon } from '../../../../ui/ui';
 
 export default function CreatePlanning(props: any) { 
   const { navigation } = props;
@@ -35,7 +35,10 @@ export default function CreatePlanning(props: any) {
     >
       <Section>
         <Row>
-          <H2>Creando tu planificación personal</H2>
+          <H2 align='center'>Creando tu planificación personal</H2>
+        </Row>
+        <Row style={{flexDirection:'column', alignItems: 'center'}}>
+          <Icon.IconLoadingPercentage />
         </Row>
         <Row style={{flexDirection:'column'}}>
           <Text>Tu experiencia</Text>

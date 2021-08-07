@@ -35,7 +35,7 @@ export default function Experience(props: any) {
     >
       <Section>
         <Row>
-          <H2>Subscripción a Rebaila</H2>
+          <H2 align='center'>Subscripción a Rebaila</H2>
         </Row>
         <Row>
           <ButtonBox

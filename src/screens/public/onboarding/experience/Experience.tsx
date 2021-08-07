@@ -26,7 +26,7 @@ export default function Experience(props: any) {
     >
       <Section>
         <Row>
-          <H2>¿Que necesitas experiencia tienes bailando?</H2>
+          <H2 align='center'>¿Que necesitas experiencia tienes bailando?</H2>
         </Row>
           <ButtonItems>
             {experiences.map((experience) => (

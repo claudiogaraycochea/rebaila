@@ -2,7 +2,7 @@
 import { Container, Section, Row, Col } from './sources/containers/Containers';
 import { H1, H2, H3, Text } from './sources/texts/Texts';
 import { Input, InputDate } from './sources/inputs/Inputs';
-import { ButtonItems, ButtonItem, ButtonBottom, ButtonBox, ButtonPlayer, ButtonIcon } from './sources/buttons/Buttons';
+import { Button, ButtonItems, ButtonItem, ButtonBottom, ButtonBox, ButtonPlayer, ButtonIcon } from './sources/buttons/Buttons';
 import { Color } from './sources/colors/Colors';
 import { Icon } from './sources/icons/Icons';
 /*
@@ -13,6 +13,6 @@ export {
   Container, Section, Row, Col,
   H1, H2, H3, Text,
   Input, InputDate,
-  ButtonItems, ButtonItem, ButtonBottom, ButtonBox, ButtonPlayer, ButtonIcon,
+  Button, ButtonItems, ButtonItem, ButtonBottom, ButtonBox, ButtonPlayer, ButtonIcon,
   Icon,
 }

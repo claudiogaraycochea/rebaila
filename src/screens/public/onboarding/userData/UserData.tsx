@@ -59,7 +59,7 @@ export default function Experience(props: any) {
     >
       <Section>
         <Row>
-          <H2>Ahora necesitamos algunos datos tuyos</H2>
+          <H2 align='center'>Ahora necesitamos algunos datos tuyos</H2>
         </Row>
         <Row>
           <Input 

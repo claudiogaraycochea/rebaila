@@ -26,7 +26,7 @@ export default function Experience(props: any) {
     >
       <Section>
         <Row>
-          <H2>¿Cual es tu principal objetivo?</H2>
+          <H2 align='center'>¿Cual es tu principal objetivo?</H2>
         </Row>
           <ButtonItems>
             {time_by_sessions.map((experience) => (
