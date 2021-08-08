@@ -1,5 +1,5 @@
-import * as React from "react"
-import Svg, { SvgProps, Path } from "react-native-svg"
+import * as React from "react";
+import Svg, { SvgProps, Path } from "react-native-svg";
 
 function IconLoadingPercentage(props: SvgProps) {
   return (
@@ -22,7 +22,7 @@ function IconLoadingPercentage(props: SvgProps) {
         fill="#337BDC"
       />
     </Svg>
-  )
+  );
 }
 
-export default IconLoadingPercentage
+export default IconLoadingPercentage;

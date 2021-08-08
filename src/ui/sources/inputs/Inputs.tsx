@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, TextInput } from 'react-native';
-import styled from 'styled-components/native';
-import { Color } from '../colors/Colors';
-import { InputDatePicker } from './InputDatePicker';
-import validate from './validate';
+import React from "react";
+import { View, Text, TextInput } from "react-native";
+import styled from "styled-components/native";
+import { Color } from "../colors/Colors";
+import { InputDatePicker } from "./InputDatePicker";
+import validate from "./validate";
 
 /* Input 
   Ex:
@@ -24,7 +24,7 @@ export const Input = (props: any) => {
   validate.min = props.min;
 
   const InputContainer = styled.TextInput`
-    backgroundColor: ${Color.grayLight};
+    backgroundcolor: ${Color.grayLight};
     color: ${Color.gray};
     padding: 10px 20px;
     width: 100%;
@@ -35,26 +35,28 @@ export const Input = (props: any) => {
   `;
 
   return (
-    <View style={{width: '100%'}}>
-      {props.label ? <Text style={{marginBottom: 10}}>{props.label}</Text> : null}
+    <View style={{ width: "100%" }}>
+      {props.label ? (
+        <Text style={{ marginBottom: 10 }}>{props.label}</Text>
+      ) : null}
       <InputContainer
         defaultValue={value}
-        secureTextEntry={(props.type==='password') ? true : false}
-        placeholder= {props.placeholder}
+        secureTextEntry={props.type === "password" ? true : false}
+        placeholder={props.placeholder}
         style={validate.styleCheckValueInit(value)}
-        onChange={(event) => { value = event.nativeEvent.text }}
+        onChange={(event) => {
+          value = event.nativeEvent.text;
+        }}
         onEndEditing={() => props.onChangeText(value)}
-      >
-      </InputContainer>
+      ></InputContainer>
     </View>
-  )
-
-}
+  );
+};
 
 export const InputDate = (props: any) => {
   const { onEndEditing, value } = props;
   const InputContainer = styled.View`
-    backgroundColor: ${Color.grayLight};
+    backgroundcolor: ${Color.grayLight};
     color: ${Color.gray};
     padding: 10px 20px;
     width: 100%;
@@ -65,11 +67,16 @@ export const InputDate = (props: any) => {
   `;
 
   return (
-    <View style={{width: '100%'}}>
-      {props.label ? <Text style={{marginBottom: 10}}>{props.label}</Text> : null}
+    <View style={{ width: "100%" }}>
+      {props.label ? (
+        <Text style={{ marginBottom: 10 }}>{props.label}</Text>
+      ) : null}
       <InputContainer>
-        <InputDatePicker value={value} onEndEditing={(data: any) => onEndEditing(data)}/>
+        <InputDatePicker
+          value={value}
+          onEndEditing={(data: any) => onEndEditing(data)}
+        />
       </InputContainer>
     </View>
-  )
-}
+  );
+};

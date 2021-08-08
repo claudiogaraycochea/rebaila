@@ -1,8 +1,8 @@
-import React, { Children } from 'react';
-import { View, ImageBackground, TouchableHighlight, Image } from 'react-native';
-import styled, { css } from 'styled-components/native';
-import { Color } from '../colors/Colors';
-import { Icon } from '../icons/Icons';
+import React, { Children } from "react";
+import { View, ImageBackground, TouchableHighlight, Image } from "react-native";
+import styled, { css } from "styled-components/native";
+import { Color } from "../colors/Colors";
+import { Icon } from "../icons/Icons";
 
 ///////////////////////////
 /* Button */
@@ -21,7 +21,7 @@ export const Button = (props: any) => {
     shadow-opacity: 0.25;
     shadow-radius: 2;
     shadow-offset: 0px 2px;
-  `
+  `;
   const ButtonLabel = styled.Text`
     font-weight: 700;
     align-self: center;
@@ -29,17 +29,15 @@ export const Button = (props: any) => {
     padding: 10px;
     font-size: 16px;
     color: ${Color.white};
-  `
+  `;
 
   return (
     <ButtonContainer
-      underlayColor='rgba(73,182,77,1,0.9)'
+      underlayColor="rgba(73,182,77,1,0.9)"
       onPress={props.onPress}
       style={props.style}
     >
-      <ButtonLabel>
-        {props.title}
-      </ButtonLabel>
+      <ButtonLabel>{props.title}</ButtonLabel>
     </ButtonContainer>
   );
 };
@@ -56,35 +54,32 @@ export const ButtonItems = styled.View`
 
 /* ButtonItem */
 export const ButtonItem = (props) => {
-
   const { title, description, onPress, style, active, thumbnail } = props;
-
   const ButtonItemContainer = styled.TouchableHighlight`
     margin-left: -20px;
     margin-right: -20px;
     position: relative;
-    borderTopColor: ${Color.grayHighlight};
-    borderTopWidth: 1px;
+    bordertopcolor: ${Color.grayHighlight};
+    bordertopwidth: 1px;
     padding: 20px;
-    backgroundColor: ${active ? Color.primary : Color.white};
+    backgroundcolor: ${active ? Color.primary : Color.white};
   `;
-
   const ButtonItemContent = styled.View`
-    display: flex;
+    display: flex;yarn add --dev --exact prettier
     flex-direction: column;
-  `
+  `;
   const ButtonItemTitle = styled.Text`
     font-weight: 600;
     font-size: 18px;
     color: ${active ? Color.white : Color.text};
     margin-bottom: 10px;
-  `
+  `;
   const ButtonItemDescription = styled.Text`
     font-weight: 400;
     font-size: 14px;
     color: ${active ? Color.white : Color.text};
     margin-bottom: 10px;
-  `
+  `;
   const ButtonButtonItemThumbnail = styled.ImageBackground`
     flex: 1;
     height: 180px;
@@ -92,23 +87,19 @@ export const ButtonItem = (props) => {
 
   return (
     <ButtonItemContainer
-      underlayColor='rgba(73,182,77,1,0.9)'
+      underlayColor="rgba(73,182,77,1,0.9)"
       onPress={onPress}
     >
       <ButtonItemContent>
-        <ButtonItemTitle>
-          {title}
-        </ButtonItemTitle>
-        <ButtonItemDescription>
-          {description}
-        </ButtonItemDescription>
+        <ButtonItemTitle>{title}</ButtonItemTitle>
+        <ButtonItemDescription>{description}</ButtonItemDescription>
         {thumbnail ? (
           <ButtonButtonItemThumbnail
-            source={{uri: thumbnail}}
+            source={{ uri: thumbnail }}
             resizeMode="cover"
-            imageStyle={{ borderRadius: 10}}
+            imageStyle={{ borderRadius: 10 }}
           />
-        ):null}
+        ) : null}
       </ButtonItemContent>
     </ButtonItemContainer>
   );
@@ -122,7 +113,7 @@ export const ButtonBottom = (props) => {
     margin-right: -20px;
     margin-bottom: -10px;
     position: relative;
-    backgroundColor: ${Color.primary};
+    backgroundcolor: ${Color.primary};
     color: ${Color.white};
     padding: 40px 40px;
   `;
@@ -132,23 +123,21 @@ export const ButtonBottom = (props) => {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  `
+  `;
 
   const ButtonBottomLabel = styled.Text`
     font-weight: 700;
     font-size: 16px;
     color: ${Color.white};
-  `
+  `;
 
   return (
     <ButtonBottomContainer
-      underlayColor='rgba(73,182,77,1,0.9)'
+      underlayColor="rgba(73,182,77,1,0.9)"
       onPress={onPress}
     >
       <ButtonBottomContent>
-        <ButtonBottomLabel>
-          {title}
-        </ButtonBottomLabel>
+        <ButtonBottomLabel>{title}</ButtonBottomLabel>
       </ButtonBottomContent>
     </ButtonBottomContainer>
   );
@@ -156,44 +145,38 @@ export const ButtonBottom = (props) => {
 
 /* ButtonBox */
 export const ButtonBox = (props: any) => {
-
   const { title, description, onPress, style, active } = props;
 
   const ButtonBoxContainer = styled.TouchableHighlight`
     flex: 1;
     padding: 20px;
-    backgroundColor: ${active ? Color.primary : Color.primary};
-    borderRadius: 20px;
+    backgroundcolor: ${active ? Color.primary : Color.primary};
+    borderradius: 20px;
   `;
 
   const ButtonBoxContent = styled.View`
     display: flex;
     flex-direction: column;
-  `
+  `;
+
   const ButtonBoxTitle = styled.Text`
     font-weight: 900;
     font-size: 18px;
     color: ${active ? Color.white : Color.white};
     margin-bottom: 10px;
-  `
+  `;
+
   const ButtonBoxDescription = styled.Text`
     font-weight: 400;
     font-size: 14px;
     color: ${active ? Color.white : Color.white};
-  `
+  `;
 
   return (
-    <ButtonBoxContainer
-      underlayColor='rgba(73,182,77,1,0.9)'
-      onPress={onPress}
-    >
+    <ButtonBoxContainer underlayColor="rgba(73,182,77,1,0.9)" onPress={onPress}>
       <ButtonBoxContent>
-        <ButtonBoxTitle>
-          {title}
-        </ButtonBoxTitle>
-        <ButtonBoxDescription>
-          {description}
-        </ButtonBoxDescription>
+        <ButtonBoxTitle>{title}</ButtonBoxTitle>
+        <ButtonBoxDescription>{description}</ButtonBoxDescription>
       </ButtonBoxContent>
     </ButtonBoxContainer>
   );
@@ -201,7 +184,6 @@ export const ButtonBox = (props: any) => {
 
 /* ButtonBox */
 export const ButtonPlayer = (props: any) => {
-
   const { thumbnail, gender, onPress, style, active } = props;
 
   const ButtonPlayerImage = styled.ImageBackground`
@@ -220,38 +202,36 @@ export const ButtonPlayer = (props: any) => {
   `;
 
   const ButtonPlayerGender = styled.View`
-    backgroundColor: ${Color.green};
-    borderRadius: 20px;
+    backgroundcolor: ${Color.green};
+    borderradius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px 10px;
     width: 140px;
-  `
+  `;
   const ButtonPlayerGenderLabel = styled.Text`
     font-weight: 400;
     font-size: 14px;
     color: ${active ? Color.white : Color.text};
-  `
+  `;
 
   return (
-    <ButtonPlayerImage 
-      source={{uri: props.thumbnail}}
+    <ButtonPlayerImage
+      source={{ uri: props.thumbnail }}
       resizeMode="cover"
-      imageStyle={{ borderRadius: 10}}
-    > 
-    <ButtonPlayerContainer
-      underlayColor='rgba(73,182,77,1,0.9)'
-      onPress={onPress}
+      imageStyle={{ borderRadius: 10 }}
     >
-  
+      <ButtonPlayerContainer
+        underlayColor="rgba(73,182,77,1,0.9)"
+        onPress={onPress}
+      >
         <ButtonPlayerContent>
           <ButtonPlayerGender>
             <ButtonPlayerGenderLabel>{gender}</ButtonPlayerGenderLabel>
           </ButtonPlayerGender>
         </ButtonPlayerContent>
-      
-    </ButtonPlayerContainer>
+      </ButtonPlayerContainer>
     </ButtonPlayerImage>
   );
 };
@@ -265,11 +245,11 @@ export const ButtonIcon = (props: any) => {
     display: flex;
     justify-content: center;
     align-items: center;
-  `
+  `;
 
   return (
     <ButtonIconContainer
-      underlayColor='rgba(0,0,0,1,0.5)'
+      underlayColor="rgba(0,0,0,1,0.5)"
       onPress={props.onPress}
       style={props.style}
       variant={props.variant}

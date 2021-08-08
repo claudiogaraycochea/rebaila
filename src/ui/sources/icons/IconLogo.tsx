@@ -1,11 +1,11 @@
-import * as React from "react"
+import * as React from "react";
 import Svg, {
   SvgProps,
   Path,
   Defs,
   LinearGradient,
   Stop,
-} from "react-native-svg"
+} from "react-native-svg";
 
 function IconLogo(props: SvgProps) {
   return (
@@ -48,7 +48,7 @@ function IconLogo(props: SvgProps) {
         </LinearGradient>
       </Defs>
     </Svg>
-  )
+  );
 }
 
-export default IconLogo
+export default IconLogo;

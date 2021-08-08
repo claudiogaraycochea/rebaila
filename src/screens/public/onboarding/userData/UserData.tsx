@@ -1,11 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setUserData } from '../../../../store/actions/userActions';
-import { Container, Section, Row, H2, ButtonBottom, Input, InputDate} from '../../../../ui/ui';
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setUserData } from "../../../../store/actions/userActions";
+import {
+  Container,
+  Section,
+  Row,
+  H2,
+  ButtonBottom,
+  Input,
+  InputDate,
+} from "../../../../ui/ui";
 
-export default function Experience(props: any) { 
+export default function Experience(props: any) {
   const { navigation } = props;
-  const state = useSelector(state => state.userConstructor);
+  const state = useSelector((state) => state.userConstructor);
   const [itemSelected, setItemSelected] = useState(false);
   const [fullname, setFullname] = useState();
   const [country, setCountry] = useState();
@@ -14,33 +22,36 @@ export default function Experience(props: any) {
 
   // Update the "store" in redux and move to the next screen
   function handleButtonNext() {
-
     const data = {
       fullname,
       country,
-      date_of_birth: birth
-    }
+      date_of_birth: birth,
+    };
     dispatch(setUserData(data));
-    navigation.navigate('CreatePlanning');
+    navigation.navigate("CreatePlanning");
   }
 
   const checkInputs = () => {
-    if (((fullname!==undefined) && (fullname!==''))
-      && ((country!==undefined) && (country!==''))) {
+    if (
+      fullname !== undefined &&
+      fullname !== "" &&
+      country !== undefined &&
+      country !== ""
+    ) {
       return true;
     }
     return false;
-  }
+  };
 
   function validateForm(name, value) {
     switch (name) {
-      case 'fullname':
+      case "fullname":
         setFullname(value);
         break;
-      case 'country':
+      case "country":
         setCountry(value);
         break;
-      case 'birth':
+      case "birth":
         setBirth(value);
         break;
       default:
@@ -50,44 +61,42 @@ export default function Experience(props: any) {
 
   return (
     <Container
-      bottom={(checkInputs()) ? (
-        <ButtonBottom
-          title="Siguiente"
-          onPress={handleButtonNext}
-        />) : null
+      bottom={
+        checkInputs() ? (
+          <ButtonBottom title="Siguiente" onPress={handleButtonNext} />
+        ) : null
       }
     >
       <Section>
         <Row>
-          <H2 align='center'>Ahora necesitamos algunos datos tuyos</H2>
+          <H2 align="center">Ahora necesitamos algunos datos tuyos</H2>
         </Row>
         <Row>
-          <Input 
-            label='Nombre completo'
-            type='text'
+          <Input
+            label="Nombre completo"
+            type="text"
             value={fullname}
-            placeholder=''
-            onChangeText={(text: any)=> validateForm('fullname',text)}
+            placeholder=""
+            onChangeText={(text: any) => validateForm("fullname", text)}
           />
         </Row>
         <Row>
-          <Input 
-            label='Pais de residencia'
-            type='text'
+          <Input
+            label="Pais de residencia"
+            type="text"
             value={country}
-            placeholder=''
-            onChangeText={(text: any)=> validateForm('country',text)}
+            placeholder=""
+            onChangeText={(text: any) => validateForm("country", text)}
           />
         </Row>
         <Row>
-          <InputDate 
-            label='Fecha de nacimiento'
+          <InputDate
+            label="Fecha de nacimiento"
             value={birth}
-            onEndEditing={(data: any)=> validateForm('birth', data)}
+            onEndEditing={(data: any) => validateForm("birth", data)}
           />
         </Row>
       </Section>
     </Container>
   );
-
 }
