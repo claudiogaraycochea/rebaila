@@ -1,29 +1,11 @@
 import React, { Children } from 'react';
 import { View, ImageBackground, TouchableHighlight, Image } from 'react-native';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/native';
 import { Color } from '../colors/Colors';
 import { Icon } from '../icons/Icons';
 
 ///////////////////////////
 /* Button */
-
-const getBgColor = (variant) => {
-  switch(variant) {
-    case 'primary':
-      return Color.primary
-    default:
-      return Color.normal
-  }
-}
-
-const getTextColor = (variant) => {
-  switch(variant) {
-    case 'primary':
-      return Color.white
-    default:
-      return Color.white
-  }
-}
 
 export const Button = (props: any) => {
   const ButtonContainer = styled.TouchableHighlight`
