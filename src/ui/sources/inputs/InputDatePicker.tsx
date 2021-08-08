@@ -5,11 +5,11 @@ import styled from 'styled-components/native';
 import { Color } from '../colors/Colors';
 
 export const InputDatePicker = (props: any) => {
-  const [date, setDate] = useState(props.value);
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(false);
+  const [date, setDate] = useState<string>(props.value);
+  const [mode, setMode] = useState<string>('date');
+  const [show, setShow] = useState<boolean>(false);
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>, selectedDate: any) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);

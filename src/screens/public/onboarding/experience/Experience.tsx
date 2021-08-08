@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setInterest } from '../../../../store/actions/userActions';
 import { Container, Section, Row, H2, ButtonItems, ButtonItem, ButtonBottom } from '../../../../ui/ui';
+import IItem from '../../../../models/item';
+import { RootState } from '../../../../store/reducers/reducers';
 
 export default function Experience(props: any) { 
   const { navigation } = props;
-  const { experiences } = useSelector(state => state.systemConstructor);
+  const { experiences } = useSelector((state:RootState) => state.systemConstructor);
   const [itemSelected, setItemSelected] = useState('');
   const dispatch = useDispatch();
 
@@ -29,7 +31,7 @@ export default function Experience(props: any) {
           <H2 align='center'>¿Que necesitas experiencia tienes bailando?</H2>
         </Row>
           <ButtonItems>
-            {experiences.map((experience) => (
+            {experiences.map((experience: IItem) => (
               <ButtonItem key={experience.id}
                 onPress={()=>setItemSelected(experience.tag)}
                 active={(itemSelected === experience.tag) ? true : false }

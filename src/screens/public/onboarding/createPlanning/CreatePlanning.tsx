@@ -1,26 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { View } from 'react-native';
-import { setUserData } from '../../../../store/actions/userActions';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../store/reducers/reducers';
 import { Container, Section, Row, H2, H3, Text, ButtonBottom, Icon } from '../../../../ui/ui';
 
 export default function CreatePlanning(props: any) { 
   const { navigation } = props;
-  const { interest } = useSelector(state => state.userConstructor);
-  const [itemSelected, setItemSelected] = useState(false);
-  const [fullname, setFullname] = useState();
-  const [country, setCountry] = useState();
-  const [birth, setBirth] = useState(new Date(1598051730000));
-  const dispatch = useDispatch();
+  const { interest } = useSelector((state:RootState) => state.userConstructor);
 
   // Update the "store" in redux and move to the next screen
   function handleButtonNext() {
-    const data = {
-      fullname,
-      country,
-      date_of_birth: birth
-    }
-    dispatch(setUserData(data));
     navigation.navigate('Subscription');
   }
 
@@ -54,10 +42,9 @@ export default function CreatePlanning(props: any) {
         </Row>
         <Row style={{flexDirection:'column', }}>
           <Text>Tiempo por sesión</Text>
-          <H3>{interest.tyme_by_session}</H3>
+          <H3>{interest.time_by_session}</H3>
         </Row>
       </Section>
     </Container>
   );
-
 }

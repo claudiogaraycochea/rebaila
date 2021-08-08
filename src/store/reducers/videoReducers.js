@@ -1,15 +1,17 @@
+import videos from '../config/videos.json';
+
 const initialState = {
-    auth: {},
-  };
-  
-  export default function videoConstructor(state = initialState, action) {
-    switch (action.type) {
-      case 'SET_FIRSTNAME':
-        return {
-          ...state,
-          firstname: action.firstname
-        };
-      default:
-        return state;
-    }
+  videos,
+};
+
+export default function videoConstructor(state = initialState, action) {
+  switch (action.type) {
+    /*case 'SET_DEMO':
+      return {
+        ...state,
+        videos: action.videos
+      };*/
+    default:
+      return state;
   }
+}

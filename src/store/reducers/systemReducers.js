@@ -11,20 +11,20 @@ const initialState = {
 };
   
 export default function systemConstructor(state = initialState, action) {
-    switch (action.type) {
-      case 'SET_INTEREST':
-        return {
-          ...state
-        };
-  
-      case 'GET_COMMENTARIES_COMPANY_SUCCESS':
-        return {
-          ...state,
-          company_commentaries: action.company_commentaries
-        };
-  
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case 'SET_INTEREST':
+      return {
+        ...state
+      };
+
+    case 'GET_COMMENTARIES_COMPANY_SUCCESS':
+      return {
+        ...state,
+        company_commentaries: action.company_commentaries
+      };
+
+    default:
+      return state;
+  }
 }
     

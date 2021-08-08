@@ -1,0 +1,12 @@
+[
+  {
+    id: '1',
+    gender: 'Coreografias',
+    thumbnail: 'https://xnextplay.com/rebaila/zumba.png',
+    video: 'https://xnextplay.com/rebaila/zumba-class-1.mp4',
+    title: 'Christina Aguilera - Can\'t hold us down',
+    description: 'Vamos a visitar los hits del 2000 con una coreografia que tiene mucho groove, es muy urbana y se situa entre el hiphop y el commercial. Tendras que darlo todo!',
+    tag_level: 'advanced',
+    time: '33'
+  }
+]

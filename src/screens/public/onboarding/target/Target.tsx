@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setInterest } from '../../../../store/actions/userActions';
 import { Container, Section, Row, H2, ButtonItems, ButtonItem, ButtonBottom } from '../../../../ui/ui';
+import IItem from '../../../../models/item';
+import { RootState } from '../../../../store/reducers/reducers';
 
 export default function Experience(props: any) { 
   const { navigation } = props;
-  const { targets } = useSelector(state => state.systemConstructor);
+  const { targets } = useSelector((state:RootState) => state.systemConstructor);
   const [itemSelected, setItemSelected] = useState('');
   const dispatch = useDispatch();
 
@@ -29,12 +31,12 @@ export default function Experience(props: any) {
           <H2 align='center'>¿Cual es tu principal objetivo?</H2>
         </Row>
           <ButtonItems>
-            {targets.map((experience) => (
-              <ButtonItem key={experience.id}
-                onPress={()=>setItemSelected(experience.tag)}
-                active={(itemSelected === experience.tag) ? true : false }
-                title={experience.title}
-                description={experience.description}
+            {targets.map((target: IItem) => (
+              <ButtonItem key={target.id}
+                onPress={()=>setItemSelected(target.tag)}
+                active={(itemSelected === target.tag) ? true : false }
+                title={target.title}
+                description={target.description}
               />
             ))}
           </ButtonItems>

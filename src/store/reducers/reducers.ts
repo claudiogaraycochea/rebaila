@@ -9,3 +9,11 @@ export default combineReducers({
     systemConstructor: systemConstructor,
   }
 );
+
+export const rootReducer = combineReducers({
+  userConstructor: userConstructor,
+  videoConstructor: videoConstructor,
+  systemConstructor: systemConstructor
+});
+
+export type RootState = ReturnType<typeof rootReducer>

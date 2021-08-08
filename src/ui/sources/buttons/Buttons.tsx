@@ -1,8 +1,6 @@
-import React, { Children } from 'react';
-import { View, ImageBackground, TouchableHighlight, Image } from 'react-native';
-import styled, { css } from 'styled-components/native';
+import React from 'react';
+import styled from 'styled-components/native';
 import { Color } from '../colors/Colors';
-import { Icon } from '../icons/Icons';
 
 ///////////////////////////
 /* Button */

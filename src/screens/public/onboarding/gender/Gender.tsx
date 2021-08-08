@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setInterest } from '../../../../store/actions/userActions';
 import { Container, Section, Row, H2, ButtonItems, ButtonItem, ButtonBottom } from '../../../../ui/ui';
+import IItem from '../../../../models/item';
+import { RootState } from '../../../../store/reducers/reducers';
 
 export default function Gender(props: any) { 
   const { navigation } = props;
-  const { genders } = useSelector(state => state.systemConstructor);
+  const { genders } = useSelector((state:RootState) => state.systemConstructor);
   const [itemSelected, setItemSelected] = useState('');
   const dispatch = useDispatch();
 
@@ -29,13 +31,13 @@ export default function Gender(props: any) {
           <H2 align='center'>¿Que necesitas experiencia tienes bailando?</H2>
         </Row>
           <ButtonItems>
-            {genders.map((experience) => (
-              <ButtonItem key={experience.id}
-                onPress={()=>setItemSelected(experience.tag)}
-                active={(itemSelected === experience.tag) ? true : false }
-                title={experience.title}
-                description={experience.description}
-                thumbnail={experience.thumbnail}
+            {genders.map((gender: IItem) => (
+              <ButtonItem key={gender.id}
+                onPress={()=>setItemSelected(gender.tag)}
+                active={(itemSelected === gender.tag) ? true : false }
+                title={gender.title}
+                description={gender.description}
+                thumbnail={gender.thumbnail}
               />
             ))}
           </ButtonItems>
